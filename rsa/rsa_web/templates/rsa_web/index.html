@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title></title>
+  </head>
+  <body>
+    <form action="" method="post">
+      {% csrf_token %}
+
+      <div class="container">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <form class="col s12">
+               <div class="row">
+                 <div class="input-field col s4">
+                   <i class="material-icons prefix">account_circle</i>
+                    {{ form.author }}
+                   <label for="icon_prefix">Author</label>
+                 </div>
+                 <div class="input-field col s7">
+                   <i class="material-icons prefix">mode_edit</i>
+                    {{ form.title }}
+                   <label for="icon_prefix2">Title</label>
+                 </div>
+               </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <label>Message</label>
+        {{ form.body }}
+      </div>
+
+      <input type="submit">
+    </form>
+  </body>
+
+  <style>
+    textarea {
+      height: 22em;
+      width: 70em;
+    }
+  </style>
+
+  <!-- JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('input#input_text, textarea#textarea2').characterCounter();
+    });
+
+    M.textareaAutoResize($('#textarea1'));
+</html>
