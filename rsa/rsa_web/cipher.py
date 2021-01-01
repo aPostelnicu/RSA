@@ -50,11 +50,3 @@ public_key = {"n": n, "e": e}
 private_key = {"n": n, "d": d}
 print(f"Public key: { public_key }")
 print(f"Private key: { private_key }")
-
-text_clar = input("Text: ")
-text_clar = text_clar.upper()
-
-text_criptat = criptare(text_clar, n, e)
-print(text_criptat)
-text_decriptat = decriptare(criptate, n, d)
-print(text_decriptat)
