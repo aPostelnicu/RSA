@@ -5,6 +5,8 @@ urlpatterns = [
     path('', home),
     path('encryption/', encryption),
     path('decryption/', decryption),
+    path('encryption/', encryption),
+    path('encryption/decryption/', decryption),
     path('encryption/resultE/', resultE),
     path('decryption/resultD/', resultD)
 ]
