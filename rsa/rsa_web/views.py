@@ -4,6 +4,10 @@ from .models import Message
 from .forms import *
 from .cipher import *
 
+def home(request):
+    context = {}
+    return render(request, "rsa_web/home.html", context)
+
 def encryption(request):
     form = MessageForm()
 
@@ -34,7 +38,7 @@ def decryption(request):
         form = DecryptionForm(request.POST)
         if form.is_valid():
             form.save()
-            #return HttpResponseRedirect('resultD/')
+            return HttpResponseRedirect('resultD/')
 
     context = {
         'form': form
