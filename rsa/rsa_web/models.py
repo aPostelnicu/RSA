@@ -7,3 +7,15 @@ class Message(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        self.body = self.body.upper()
+        return super(Message, self).save(*args, **kwargs)
+
+
+class SecretMessage(models.Model):
+    msg = models.TextField()
+
+    def save(self, *args, **kwargs):
+        self.msg = self.msg.upper()
+        return super(SecretMessage, self).save(*args, **kwargs)

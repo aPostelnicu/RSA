@@ -44,9 +44,5 @@ def decriptare(criptate, n, d):
         litera = chr(m)
         text_clar += litera
 
+    criptate.clear()
     return text_clar
-
-public_key = {"n": n, "e": e}
-private_key = {"n": n, "d": d}
-print(f"Public key: { public_key }")
-print(f"Private key: { private_key }")
