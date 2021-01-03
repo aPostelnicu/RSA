@@ -11,6 +11,12 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Decryption</title>
+
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" style="color: black" href="{% url 'home' %}">Home</a>
+      <a class="navbar-brand" style="color: black" href="{% url 'encryption' %}">Encryption</a>
+    </nav>
+
   </head>
   <body>
 
@@ -18,8 +24,6 @@
 
     <form action="" method="post">
       {% csrf_token %}
-
-
 
       <div class="row">
         <div class="col s4 offset-s1">
@@ -42,6 +46,10 @@
     textarea {
       height: 20em;
       width: 50em;
+    }
+
+    .navbar-dark {
+      background-color: White;
     }
   </style>
 

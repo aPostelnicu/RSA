@@ -31,18 +31,18 @@ def criptare(text, n, e):
     for litera in text:
         l = ord(litera)
         c = (l**e) % n
-        criptate.append(c)
         a = (c % 26) + 65
         text_criptat += chr(a)
 
     return text_criptat
 
-def decriptare(criptate, n, d):
+def decriptare(text, n, d):
     text_clar = ""
-    for c in criptate:
-        m = (c**d) % n
+    for t in text:
+        c = ord(t)
+        a = (c % 26) - 65
+        m = (a**d) % n
         litera = chr(m)
         text_clar += litera
 
-    criptate.clear()
     return text_clar

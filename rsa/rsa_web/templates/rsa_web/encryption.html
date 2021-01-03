@@ -11,8 +11,9 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Encryption</title>
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" style="color: black" href="{% url 'home' %}">Home</a>
+      <a class="navbar-brand" style="color: black" href="{% url 'decryption' %}">Decryption</a>
     </nav>
   </head>
   <body>
@@ -49,8 +50,9 @@
       </div>
 
     </form>
-
+  
   </body>
+
 
   <style>
     textarea {
@@ -58,9 +60,10 @@
       width: 50em;
     }
 
-    .navbar-custom {
-      background-color: lightgreen;
+    .navbar-dark {
+      background-color: White;
     }
+
   </style>
 
   <!-- JQuery -->
@@ -80,4 +83,6 @@
     });
 
   </script>
+
+
 </html>

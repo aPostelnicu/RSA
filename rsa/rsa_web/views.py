@@ -6,9 +6,11 @@ from .cipher import *
 
 def home(request):
     context = {}
+    criptate.clear()
     return render(request, "rsa_web/home.html", context)
 
 def encryption(request):
+
     form = MessageForm()
 
     if request.method == 'POST':
@@ -48,8 +50,8 @@ def decryption(request):
 def resultD(request):
 
     obj = SecretMessage.objects.latest('id')
-
-    text = decriptare(criptate, n, d)
+    secret = obj.msg
+    text = decriptare(secret, n, d)
 
     context = {
         'obj': obj, 'text': text
