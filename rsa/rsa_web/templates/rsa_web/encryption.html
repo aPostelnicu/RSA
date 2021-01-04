@@ -12,8 +12,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Encryption</title>
     <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" style="color: black" href="{% url 'home' %}">Home</a>
-      <a class="navbar-brand" style="color: black" href="{% url 'decryption' %}">Decryption</a>
+      <div class="row">
+        <div class=" col offset-s1">
+          <a class="navbar-brand" style="color: black" href="{% url 'home' %}">Home</a>
+          <a class="navbar-brand" style="color: black" href="">Encryption</a>
+        </div>
+      </div>
+
     </nav>
   </head>
   <body>
@@ -45,14 +50,17 @@
 
       <div class="row">
         <div class="col offset-s1">
-          <button class="btn btn-primary" type="submit">Send</button>
+          <button class="btn btn-primary" style="background-color: #555555;" type="submit">Send</button>
         </div>
       </div>
 
+      <br>
+
     </form>
-  
+
   </body>
 
+  {% include 'rsa_web/footer.html' %}
 
   <style>
     textarea {

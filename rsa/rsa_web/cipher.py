@@ -1,3 +1,4 @@
+
 p = 499
 q = 269
 n = p * q
@@ -31,17 +32,16 @@ def criptare(text, n, e):
     for litera in text:
         l = ord(litera)
         c = (l**e) % n
+        criptate.append(c)
         a = (c % 26) + 65
         text_criptat += chr(a)
 
     return text_criptat
 
-def decriptare(text, n, d):
+def decriptare(criptate, n, d):
     text_clar = ""
-    for t in text:
-        c = ord(t)
-        a = (c % 26) - 65
-        m = (a**d) % n
+    for c in criptate:
+        m = (c**d) % n
         litera = chr(m)
         text_clar += litera
 
