@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -10,62 +10,81 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Secret Message</title>
+    <title>Encryption</title>
   </head>
   <body>
-    <br>
-    {% block content %}
-
+    <br />
     <div class="row">
       <div class="col s2 offset-s1">
-        <div class="row">
-          <div class="input-field col s6">
-            <i class="material-icons prefix">account_circle</i>
-            <label for="icon_prefix">{{ obj.author }}</label>
-          </div>
-        </div>
+        <a class="material-icons" href="{% url 'home' %}">keyboard_backspace</a>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col s2 offset-s1">
-        <div class="row">
-          <div class="input-field col s6">
-            <i class="material-icons prefix">mode_edit</i>
-            <label for="icon_prefix">{{ obj.title }}</label>
-          </div>
-        </div>
-      </div>
-    </div>
+    <form action="" method="post">
+      {% csrf_token %}
 
       <div class="row">
-        <div class="col s2 offset-s1">
-          <label class="active" for="secret">Message</label>
-          <div class="card" style="height: 20em; width: 50em;">
-            <div class="card-body">
-              {{ text }}
-            </div>
-          </div>
+        <div class="input-field col s2 offset-s1">
+          {{ form.author }}
+          <label class="active" for="author">Author</label>
         </div>
       </div>
 
-    {% endblock %}
-
-    <div class="row">
-      <div class="col s2 offset-s1">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link active" href="{% url 'home' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'encryption' %}">Encryption</a>
-          </li>
-        </ul>
+      <div class="row">
+        <div class="input-field col s2 offset-s1">
+          {{ form.title }}
+          <label class="active" for="title">Title</label>
+        </div>
       </div>
-    </div>
+
+      <div class="row">
+        <div class="col s4 offset-s1">
+          <label class="active" for="body">Message</label>
+          {{ form.body }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col offset-s1">
+          <button class="btn btn-primary" style="background-color: #555555;" type="submit">Start</button>
+        </div>
+      </div>
+
+      <br>
+
+    </form>
 
   </body>
 
+  {% include 'rsa_web/footer.html' %}
+
+  <style>
+    textarea {
+      height: 20em;
+      width: 50em;
+      border:1px solid black;
+    }
+
+    textarea:focus {
+      outline: none !important;
+    }
+
+    .navbar-dark {
+      background-color: White;
+    }
+
+    /* label focus color */
+    .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+      color: #555555 !important;
+    }
+
+    /* label underline focus color */
+    .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+       border-bottom: 1px solid #555555 !important;
+       box-shadow: 0 1px 0 0 #555555 !important;
+    }
+
+  </style>
 
   <!-- JQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -82,5 +101,8 @@
     $(document).ready(function() {
       M.updateTextFields();
     });
+
   </script>
+
+
 </html>

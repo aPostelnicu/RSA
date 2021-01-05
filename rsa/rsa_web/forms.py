@@ -5,3 +5,8 @@ class MessageForm(ModelForm):
     class Meta:
         model = Message
         fields = ['author', 'title', 'body']
+
+class SecretMessageForm(ModelForm):
+    class Meta:
+        model = SecretMessage
+        fields = ['author', 'title', 'body']

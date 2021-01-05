@@ -5,12 +5,10 @@ from .forms import *
 from .cipher import *
 
 def home(request):
-    criptate.clear()
     context = {}
     return render(request, "rsa_web/home.html", context)
 
 def encryption(request):
-    criptate.clear()
     form = MessageForm()
 
     if request.method == 'POST':
@@ -33,13 +31,27 @@ def result(request):
     }
     return render(request, "rsa_web/result.html", context)
 
-
 def decryption(request):
+    form = SecretMessageForm()
 
-    obj = Message.objects.latest('id')
-    text = decriptare(criptate, n, d)
+    if request.method == 'POST':
+        form = SecretMessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('resultD/')
+
+    context = {
+        'form': form
+    }
+    return render(request, "rsa_web/decryption.html", context)
+
+
+def resultD(request):
+
+    obj = SecretMessage.objects.latest('id')
+    text = decriptare(obj.body, n, d)
 
     context = {
         'obj': obj, 'text': text
     }
-    return render(request, "rsa_web/decryption.html", context)
+    return render(request, "rsa_web/resultD.html", context)

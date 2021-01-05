@@ -25,22 +25,31 @@ while True:
     if r == 1: break
     d = d + 1
 
-criptate = []
-
 def criptare(text, n, e):
-    text_criptat = ""
+    text_crypto = ""
+    criptate = []
     for litera in text:
         l = ord(litera)
         c = (l**e) % n
         criptate.append(c)
-        a = (c % 26) + 65
-        text_criptat += chr(a)
 
-    return text_criptat
+    for i in criptate:
+        text_crypto += str(i) + " "
 
-def decriptare(criptate, n, d):
+    return text_crypto
+
+def decriptare(text, n, d):
     text_clar = ""
-    for c in criptate:
+    number = 0
+    list = []
+    for t in text:
+        if t.isdigit():
+            number = number * 10 + int(t)
+        else:
+            list.append(number)
+            number = 0
+
+    for c in list:
         m = (c**d) % n
         litera = chr(m)
         text_clar += litera
