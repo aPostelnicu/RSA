@@ -11,18 +11,14 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Encryption</title>
-    <nav class="navbar navbar-dark bg-dark">
-      <div class="row">
-        <div class=" col offset-s1">
-          <a class="navbar-brand" style="color: black" href="{% url 'home' %}">Home</a>
-          <a class="navbar-brand" style="color: black" href="">Encryption</a>
-        </div>
-      </div>
-
-    </nav>
   </head>
   <body>
-    <br>
+    <br />
+    <div class="row">
+      <div class="col s2 offset-s1">
+        <a class="material-icons" href="{% url 'home' %}">keyboard_backspace</a>
+      </div>
+    </div>
 
     <form action="" method="post">
       {% csrf_token %}
@@ -50,7 +46,7 @@
 
       <div class="row">
         <div class="col offset-s1">
-          <button class="btn btn-primary" style="background-color: #555555;" type="submit">Send</button>
+          <button class="btn btn-primary" style="background-color: #555555;" type="submit">Start</button>
         </div>
       </div>
 
@@ -66,10 +62,26 @@
     textarea {
       height: 20em;
       width: 50em;
+      border:1px solid black;
+    }
+
+    textarea:focus {
+      outline: none !important;
     }
 
     .navbar-dark {
       background-color: White;
+    }
+
+    /* label focus color */
+    .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+      color: #555555 !important;
+    }
+
+    /* label underline focus color */
+    .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+       border-bottom: 1px solid #555555 !important;
+       box-shadow: 0 1px 0 0 #555555 !important;
     }
 
   </style>
