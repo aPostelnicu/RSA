@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Home</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -12,16 +12,37 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <nav class="navbar navbar-dark bg-dark">
-      <div class="row">
-        <div class=" col offset-s1">
-          <a class="navbar-brand" style="color: black" href="">Home</a>
-          <a class="navbar-brand" style="color: black" href="encryption/">Encryption</a>
-        </div>
-      </div>
-    </nav>
+
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="">Home</a>
+            <a class="nav-link" target='_blank' href="{% url 'encryption' %}">Encryption</a>
+            <a class="nav-link" target='_blank' href="{% url 'decryption' %}">Decryption</a>
+          </div>
+        </div>
+        </div>
+      </nav>
+
+      <br>
+      <div class="row">
+        <div class="col offset-s2">
+          <h5>RSA Web Application</h5>
+          <br />
+          <p>Author: Andrei Postelnicu</p>
+          <br />
+          <p></p>
+        </div>
+      </div>
+
+
     <br>
     <br>
     <br>
@@ -40,21 +61,9 @@
     <br>
     <br>
     <br>
-    <br>
-    <hr />
+
   </body>
 
 {% include 'rsa_web/footer.html' %}
 
-  <style>
-    textarea {
-      height: 20em;
-      width: 50em;
-    }
-
-    .navbar-dark {
-      background-color: White;
-    }
-
-  </style>
 </html>
