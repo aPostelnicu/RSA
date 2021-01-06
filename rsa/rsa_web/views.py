@@ -15,21 +15,21 @@ def encryption(request):
         form = MessageForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('result/')
+            return HttpResponseRedirect('secret/')
 
     context = {
         'form': form
     }
     return render(request, "rsa_web/encryption.html", context)
 
-def result(request):
+def secret(request):
     obj = Message.objects.latest('id')
     secret = criptare(obj.body, n, e)
 
     context = {
         'obj': obj, 'secret': secret
     }
-    return render(request, "rsa_web/result.html", context)
+    return render(request, "rsa_web/secret.html", context)
 
 def decryption(request):
     form = SecretMessageForm()
@@ -38,7 +38,7 @@ def decryption(request):
         form = SecretMessageForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('resultD/', '_blank')
+            return HttpResponseRedirect('message/')
 
     context = {
         'form': form
@@ -46,7 +46,7 @@ def decryption(request):
     return render(request, "rsa_web/decryption.html", context)
 
 
-def resultD(request):
+def message(request):
 
     obj = SecretMessage.objects.latest('id')
     text = decriptare(obj.body, n, d)
@@ -54,4 +54,4 @@ def resultD(request):
     context = {
         'obj': obj, 'text': text
     }
-    return render(request, "rsa_web/resultD.html", context)
+    return render(request, "rsa_web/message.html", context)

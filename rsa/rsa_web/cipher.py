@@ -49,6 +49,8 @@ def decriptare(text, n, d):
             list.append(number)
             number = 0
 
+    list.append(number)
+
     for c in list:
         m = (c**d) % n
         litera = chr(m)

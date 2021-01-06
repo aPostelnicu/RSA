@@ -1,20 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+    <link href="{% static '/js/main.js' %}">
     <title>Encryption</title>
   </head>
+
   <body>
     <br />
-
     <div class="row">
       <div class="col offset-s2">
         <h5>I wanted to tell you all my secrets, but you became one of them instead</h5>
@@ -26,7 +26,7 @@
 
         <div class="container">
           <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-4">
               <div class="input-field">
                 {{ form.author }}
                 <label class="active" for="author">Author</label>
@@ -35,107 +35,55 @@
           </div>
         </div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="input-field">
-              {{ form.title }}
-              <label class="active" for="title">Title</label>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="input-field">
+                {{ form.title }}
+                <label class="active" for="title">Title</label>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col s2 offset-s2">
-          <ul class="nav">
-            <li class="nav-item">
-              <a class="material-icons" target='_blank' href="{% url 'home' %}">home</a>
-            </li>
-            <li class="nav-item">
-              <pre class="tab">      </pre>
-            </li>
-            <li class="nav-item">
-              <a class="material-icons" target='_blank' href="{% url 'decryption' %}">vpn_key</a>
-            </li>
-            <li class="nav-item">
-              <pre class="tab">      </pre>
-            </li>
-            <li class="nav-item">
-              <a class="material-icons" target='_blank' href="{% url 'encryption' %}">lock</a>
-            </li>
-          </ul>
+        <div class="row">
+          <div class="col s2 offset-s2">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="material-icons" target='_blank' href="{% url 'home' %}">home</a>
+              </li>
+              <li class="nav-item">
+                <pre class="tab">      </pre>
+              </li>
+              <li class="nav-item">
+                <a class="material-icons" target='_blank' href="{% url 'decryption' %}">vpn_key</a>
+              </li>
+              <li class="nav-item">
+                <pre class="tab">      </pre>
+              </li>
+              <li class="nav-item">
+                <a class="material-icons" href="">lock</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
 
-      <div class="container">
-        <label class="active" for="author">Message</label>
-      </div>
+        <div class="container">
+          <label class="active" for="author">Message</label>
+        </div>
 
-      <div class="container">
-          {{ form.body }}
-      </div>
+        <div class="container">
+            {{ form.body }}
+        </div>
 
-      <br />
+        <br />
 
-      <div class="container">
-          <button class="btn btn-primary" style="background-color: #181818;" type="submit">Encrypt</button>
-      </div>
-    </form>
+        <div class="container">
+            <button class="btn btn-primary" style="background-color: #181818;" type="submit">Encrypt</button>
+        </div>
+      </form>
 
     <br />
     <br />
-
   </body>
-
-  <style>
-    textarea {
-      height: 20em;
-      width: 50em;
-      border:1px solid #181818;
-      font-size: 18px;
-      background-color: #FFFFFF;
-      color:#181818;
-    }
-
-    textarea:focus {
-      outline: #03A062;
-    }
-
-    input[type="text"]
-    {
-      color:#181818;
-    }
-
-    /* label focus color */
-    .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
-      color: #181818 !important;
-    }
-
-    /* label underline focus color */
-    .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
-       border-bottom: 1px solid #181818 !important;
-       box-shadow: 0 1px 0 0 #181818 !important;
-    }
-
-  </style>
-
-  <!-- JQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-  <script>
-    $(document).ready(function() {
-      $('input#input_text, textarea#textarea2').characterCounter();
-    });
-
-    M.textareaAutoResize($('#textarea1'));
-
-    $(document).ready(function() {
-      M.updateTextFields();
-    });
-
-  </script>
-
 </html>
