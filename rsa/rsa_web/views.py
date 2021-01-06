@@ -38,7 +38,7 @@ def decryption(request):
         form = SecretMessageForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('resultD/')
+            return HttpResponseRedirect('resultD/', '_blank')
 
     context = {
         'form': form

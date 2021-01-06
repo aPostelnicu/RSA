@@ -9,4 +9,4 @@ class MessageForm(ModelForm):
 class SecretMessageForm(ModelForm):
     class Meta:
         model = SecretMessage
-        fields = ['author', 'title', 'body']
+        fields = ['body']
