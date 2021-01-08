@@ -1,9 +1,10 @@
-
+# p and q - prime numbers
 p = 499
 q = 269
 n = p * q
 f = (p - 1) * (q - 1)
 
+# euclidean algorithm
 def euclid(a, b):
     while b:
         c = a % b
@@ -12,6 +13,7 @@ def euclid(a, b):
 
     return a
 
+# e
 e = 2
 while (e < f):
     if euclid(e, f) == 1:
@@ -19,12 +21,14 @@ while (e < f):
     else:
         e = e + 1
 
+# d
 d = 1
 while True:
     r = (d * e) % f
     if r == 1: break
     d = d + 1
 
+# encryption
 def criptare(text, n, e):
     text_crypto = ""
     criptate = []
@@ -38,6 +42,7 @@ def criptare(text, n, e):
 
     return text_crypto
 
+# decryption
 def decriptare(text, n, d):
     text_clar = ""
     number = 0
