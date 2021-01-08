@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'rsa.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'RSA_DB',
+        'USER': 'aPostelnicu',
+        'PASSWORD': 'Darkside98',
+        'HOST': 'rsa.cssstmadbn0b.eu-west-2.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
