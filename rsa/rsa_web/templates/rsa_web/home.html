@@ -13,6 +13,26 @@
 
   <body>
       <br />
+
+      <div class="row">
+        <div class="col s2 offset-s2">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'encryption' %}">Encryption</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'decryption' %}">Decryption</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr />
+      <br />
+
       <div class="text-center">
         <h5>RSA Web Application</h5>
         <br />
@@ -44,24 +64,5 @@
       </div>
 
       <br />
-
-      <div class="container p-4">
-        <div class="row">
-          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-            <ul class="nav">
-              <li class="nav-item">
-                <a class="nav-link active" href="">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" target='_blank' href="{% url 'encryption' %}">Encryption</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" target='_blank' href="{% url 'decryption' %}">Decryption</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
   </body>
 </html>
