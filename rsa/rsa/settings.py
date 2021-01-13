@@ -25,7 +25,7 @@ SECRET_KEY = '%*xwtpw&n8j8rnh!dao2ht9_*kl6$9t$)uyv#70n0r=3-bq^k*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['rsaweb.herokuapp.com']
+ALLOWED_HOSTS = ['rsaweb.herokuapp.com', 'localhost']
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
